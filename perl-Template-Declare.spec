@@ -1,26 +1,26 @@
 %define upstream_name    Template-Declare
 %define upstream_version 0.45
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Template::Declare TAG set for Mozilla's em-rdf
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Template/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Template::Declare TAG set for Mozilla's em-rdf
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Template/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Class::Accessor::Fast)
-BuildRequires: perl(Class::Data::Inheritable)
-BuildRequires: perl(Class::ISA)
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: perl(HTML::Lint)
-BuildRequires: perl(String::BufferStack)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(Test::Warn)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Class::Accessor::Fast)
+BuildRequires:	perl(Class::Data::Inheritable)
+BuildRequires:	perl(Class::ISA)
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(HTML::Lint)
+BuildRequires:	perl(String::BufferStack)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(Test::Warn)
+BuildArch:	noarch
 
 %description
 'Template::Declare' is a pure-Perl declarative HTML/XUL/RDF/XML templating
@@ -34,24 +34,33 @@ A few key features and buzzwords:
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/Template/
+%{perl_vendorlib}/Template/
+
+%changelog
+* Sun Apr 17 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.450.0-1mdv2011.0
++ Revision: 654377
+- update to new version 0.45
+
+* Sun Dec 19 2010 Guillaume Rousse <guillomovitch@mandriva.org> 0.440.0-1mdv2011.0
++ Revision: 622948
+- new version
+
+* Fri Apr 30 2010 Michael Scherer <misc@mandriva.org> 0.430.0-1mdv2011.0
++ Revision: 541109
+- import perl-Template-Declare
 
 
+* Fri Apr 30 2010 cpan2dist 0.43-1mdv
+- initial mdv release, generated with cpan2dist
