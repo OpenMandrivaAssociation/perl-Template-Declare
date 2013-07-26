@@ -1,15 +1,15 @@
 %define upstream_name    Template-Declare
-%define upstream_version 0.45
+%define upstream_version 0.46
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Version:	%perl_convert_version 0.46
+Release:	1
 
 Summary:	Template::Declare TAG set for Mozilla's em-rdf
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Template/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Template/Template-Declare-0.46.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Class::Accessor::Fast)
@@ -64,3 +64,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Fri Apr 30 2010 cpan2dist 0.43-1mdv
 - initial mdv release, generated with cpan2dist
+
