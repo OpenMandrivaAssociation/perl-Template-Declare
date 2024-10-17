@@ -8,7 +8,7 @@ Release:	3
 Summary:	Template::Declare TAG set for Mozilla's em-rdf
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Template/Template-Declare-0.46.tar.gz
 
 BuildRequires:	perl-devel
